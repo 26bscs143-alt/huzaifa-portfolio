@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huzaifa | AI Automation Developer</title>
+<meta name="description" content="Huzaifa - BSCS student exploring AI automation, n8n, Python and frontend development.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#080b14;color:#f5f6ff;font-family:Inter,sans-serif;overflow-x:hidden}
+:root{--blue:#6585ff;--purple:#a16bff;--muted:#929ab2}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;width:100%;z-index:10;padding:20px 8%;display:flex;justify-content:space-between;align-items:center;background:#080b14ed;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff12}
+.logo{font-size:24px;font-weight:800}
+.logo span{color:var(--blue)}
+.navlinks{display:flex;gap:25px;font-size:13px;color:#c4c8d8}
+.navlinks a:hover{color:var(--blue)}
+.menu{display:none;background:none;color:white;border:0;font-size:25px;cursor:pointer}
+.hero{min-height:100vh;padding:150px 9% 80px;display:flex;align-items:center;justify-content:space-between;gap:50px;position:relative}
+.hero:before{content:"";position:absolute;width:450px;height:450px;background:#536fff20;filter:blur(100px);border-radius:50%;top:15%;right:5%;pointer-events:none}
+.hero-content{max-width:650px;z-index:1}
+.tag{display:inline-block;border:1px solid #6585ff55;background:#6585ff12;color:#91a8ff;padding:10px 17px;border-radius:30px;font-size:12px;margin-bottom:25px}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.12;letter-spacing:-3px}
+.gradient{background:linear-gradient(90deg,#7295ff,#bd83ff);-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--muted);line-height:1.9;margin:25px 0;font-size:15px}
+.actions{display:flex;gap:15px;flex-wrap:wrap}
+.btn{padding:14px 23px;border-radius:9px;font-size:13px;font-weight:700;display:inline-block;transition:.3s}
+.primary{background:linear-gradient(100deg,#587cff,#9369ff);color:white}
+.secondary{border:1px solid #ffffff30}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px #6585ff35}
+.profile{width:300px;height:370px;flex-shrink:0;z-index:1;border:1px solid #718bff66;border-radius:25px;overflow:hidden;box-shadow:0 0 60px #647eff20;animation:float 5s ease-in-out infinite}
+.profile img{width:100%;height:100%;object-fit:cover}
+@keyframes float{50%{transform:translateY(-13px)}}
+section{padding:100px 9%;scroll-margin-top:85px}
+.heading{text-align:center;margin-bottom:55px}
+.heading small{color:#8ba2ff;letter-spacing:3px;text-transform:uppercase}
+.heading h2{font-size:36px;margin-top:12px}
+.about{max-width:850px;margin:auto;text-align:center;color:var(--muted);line-height:2;font-size:15px}
+.skills,.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:linear-gradient(145deg,#141a2b,#0d1220);border:1px solid #ffffff12;border-radius:16px;padding:25px;transition:.3s}
+.card:hover{transform:translateY(-7px);border-color:#758dff80}
+.card h3{font-size:16px;margin:15px 0 9px}
+.card p{font-size:13px;line-height:1.8;color:var(--muted)}
+.emoji{font-size:27px}
+.project-label{font-size:11px;color:#9aabff;background:#6585ff19;padding:7px 11px;display:inline-block;border-radius:20px;margin-bottom:15px}
+.timeline{max-width:650px;margin:auto;border-left:1px solid #627fff70;padding-left:30px}
+.timeline-item{position:relative;margin-bottom:35px}
+.timeline-item:before{content:"";position:absolute;left:-36px;top:5px;width:11px;height:11px;background:#8297ff;border-radius:50%}
+.timeline h3{font-size:17px;margin-bottom:8px}
+.timeline p{font-size:13px;color:var(--muted);line-height:1.8}
+.contact{text-align:center}
+.contact p{color:var(--muted);margin:20px auto 30px;line-height:1.8;max-width:500px}
+footer{border-top:1px solid #ffffff15;text-align:center;padding:30px;color:#858da4;font-size:12px}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:800px){
+nav{padding:18px 6%}
+.menu{display:block}
+.navlinks{display:none;position:absolute;top:65px;left:0;width:100%;background:#0d1220;padding:25px;flex-direction:column;gap:22px}
+.navlinks.open{display:flex}
+.hero{padding:130px 7% 70px;flex-direction:column-reverse;text-align:center;gap:40px}
+.hero-content{max-width:100%}
+.actions{justify-content:center}
+.profile{width:240px;height:290px}
+section{padding:75px 7%}
+.skills,.projects{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:500px){
+.skills,.projects{grid-template-columns:1fr}
+.heading h2{font-size:29px}
+h1{letter-spacing:-2px}
+}
+</style>
+</head>
+
+<body>
+<nav>
+<a href="#home" class="logo">Huzaifa<span>.</span></a>
+<button class="menu" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+<div class="navlinks" id="navlinks">
+<a href="#home" onclick="closeMenu()">Home</a>
+<a href="#about" onclick="closeMenu()">About</a>
+<a href="#skills" onclick="closeMenu()">Skills</a>
+<a href="#projects" onclick="closeMenu()">Projects</a>
+<a href="#education" onclick="closeMenu()">Education</a>
+<a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+<div class="hero-content">
+<span class="tag">✦ AI AUTOMATION & TECHNOLOGY ENTHUSIAST</span>
+<h1>Hi, I'm <span class="gradient">Huzaifa</span></h1>
+<h2 style="font-size:clamp(20px,3vw,30px);margin-top:12px">I Build Smart Digital Solutions.</h2>
+<p>I'm a BSCS undergraduate student passionate about AI automation, n8n workflows, Python programming and frontend development. I enjoy exploring technology and turning ideas into practical digital solutions.</p>
+<div class="actions">
+<a href="#projects" class="btn primary">Explore My Work ↗</a>
+<a href="#contact" class="btn secondary">Let's Connect</a>
+</div>
+</div>
+<div class="profile">
+<img src="profile.jpg" alt="Huzaifa's profile photo">
+</div>
+</section>
+
+<section id="about">
+<div class="heading"><small>Discover My Journey</small><h2>About Me</h2></div>
+<div class="about">
+I'm Huzaifa, currently pursuing a Bachelor of Science in Computer Science (BSCS). I have explored n8n workflow automation, Meta Ads Management, Python programming and frontend development.
+<br><br>
+I'm passionate about learning new technologies, experimenting with ideas and building practical projects. My goal is to grow as a developer and collaborate on meaningful technology projects.
+</div>
+</section>
+
+<section id="skills">
+<div class="heading"><small>What I Work With</small><h2>My Skills</h2></div>
+<div class="skills">
+<div class="card"><div class="emoji">🤖</div><h3>AI Automation</h3><p>Exploring intelligent workflows and AI-powered automation solutions.</p></div>
+<div class="card"><div class="emoji">⚙️</div><h3>n8n</h3><p>Building automated workflows and connecting different services.</p></div>
+<div class="card"><div class="emoji">📢</div><h3>Meta Ads Management</h3><p>Learning campaign management and digital advertising fundamentals.</p></div>
+<div class="card"><div class="emoji">🐍</div><h3>Python</h3><p>Programming fundamentals, logical thinking and basic development.</p></div>
+<div class="card"><div class="emoji">🌐</div><h3>Frontend Development</h3><p>Building web interfaces using HTML, CSS and JavaScript.</p></div>
+<div class="card"><div class="emoji">📚</div><h3>Continuous Learning</h3><p>Exploring new tools, technologies and development practices.</p></div>
+</div>
+</section>
+
+<section id="projects">
+<div class="heading"><small>Things I've Built</small><h2>My Projects</h2></div>
+<div class="projects">
+<div class="card">
+<span class="project-label">Personal Project · n8n</span>
+<div class="emoji">🤖</div>
+<h3>AI Chatbot</h3>
+<p>A mini personal chatbot project built using n8n to explore AI-powered conversations and workflow automation.</p>
+</div>
+<div class="card">
+<span class="project-label">Academic Coursework</span>
+<div class="emoji">💻</div>
+<h3>Programming Fundamentals</h3>
+<p>University coursework and practical exercises focused on programming concepts and problem-solving skills.</p>
+</div>
+<div class="card">
+<span class="project-label">Academic Coursework</span>
+<div class="emoji">🖥️</div>
+<h3>AICT Coursework</h3>
+<p>Academic learning and practical exercises in Information and Communication Technology.</p>
+</div>
+<div class="card">
+<span class="project-label">Academic Coursework</span>
+<div class="emoji">🌐</div>
+<h3>Frontend Practice</h3>
+<p>Learning and practicing the fundamentals of creating web interfaces and understanding web technologies.</p>
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="heading"><small>My Academic Journey</small><h2>Education</h2></div>
+<div class="timeline">
+<div class="timeline-item">
+<h3>Bachelor of Science in Computer Science (BSCS)</h3>
+<p>Currently pursuing undergraduate studies.</p>
+</div>
+<div class="timeline-item">
+<h3>Technical Coursework</h3>
+<p>AICT, Programming Fundamentals, AICT Lab and PF Lab.</p>
+</div>
+<div class="timeline-item">
+<h3>Additional Subjects</h3>
+<p>English and Islamiat.</p>
+</div>
+<div class="timeline-item">
+<h3>Independent Learning</h3>
+<p>n8n, AI Automation, Python, Meta Ads Management and frontend development.</p>
+</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="heading"><small>Get In Touch</small><h2>Let's Connect</h2></div>
+<p>I'm open to learning opportunities, collaborations and projects in AI automation, Python and frontend development.</p>
+<div class="actions" style="justify-content:center">
+<a class="btn primary" href="mailto:26bscs143@student.hitms.edu.pk">Email Me ↗</a>
+</div>
+<p style="font-size:12px;margin-top:20px">26bscs143@student.hitms.edu.pk</p>
+</section>
+</main>
+
+<footer>© 2026 Huzaifa. Built with passion and continuous learning.</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById('navlinks').classList.toggle('open');
+}
+function closeMenu(){
+document.getElementById('navlinks').classList.remove('open');
+}
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting)entry.target.classList.add('show');
+});
+},{threshold:0.12});
+document.querySelectorAll('.card,.heading,.about,.timeline-item').forEach(el=>{
+el.classList.add('reveal');
+observer.observe(el);
+});
+</script>
+</body>
+</html>
