@@ -1,214 +1,1244 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huzaifa | AI Automation Developer</title>
-<meta name="description" content="Huzaifa - BSCS student exploring AI automation, n8n, Python and frontend development.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#080810">
+<meta name="description" content="Huzaifa Rizwan - BSCS Student, Python Learner and AI Enthusiast.">
+<title>Huzaifa Rizwan | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:#080b14;color:#f5f6ff;font-family:Inter,sans-serif;overflow-x:hidden}
-:root{--blue:#6585ff;--purple:#a16bff;--muted:#929ab2}
-a{text-decoration:none;color:inherit}
-nav{position:fixed;top:0;width:100%;z-index:10;padding:20px 8%;display:flex;justify-content:space-between;align-items:center;background:#080b14ed;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff12}
-.logo{font-size:24px;font-weight:800}
-.logo span{color:var(--blue)}
-.navlinks{display:flex;gap:25px;font-size:13px;color:#c4c8d8}
-.navlinks a:hover{color:var(--blue)}
-.menu{display:none;background:none;color:white;border:0;font-size:25px;cursor:pointer}
-.hero{min-height:100vh;padding:150px 9% 80px;display:flex;align-items:center;justify-content:space-between;gap:50px;position:relative}
-.hero:before{content:"";position:absolute;width:450px;height:450px;background:#536fff20;filter:blur(100px);border-radius:50%;top:15%;right:5%;pointer-events:none}
-.hero-content{max-width:650px;z-index:1}
-.tag{display:inline-block;border:1px solid #6585ff55;background:#6585ff12;color:#91a8ff;padding:10px 17px;border-radius:30px;font-size:12px;margin-bottom:25px}
-h1{font-size:clamp(42px,6vw,76px);line-height:1.12;letter-spacing:-3px}
-.gradient{background:linear-gradient(90deg,#7295ff,#bd83ff);-webkit-background-clip:text;color:transparent}
-.hero p{color:var(--muted);line-height:1.9;margin:25px 0;font-size:15px}
-.actions{display:flex;gap:15px;flex-wrap:wrap}
-.btn{padding:14px 23px;border-radius:9px;font-size:13px;font-weight:700;display:inline-block;transition:.3s}
-.primary{background:linear-gradient(100deg,#587cff,#9369ff);color:white}
-.secondary{border:1px solid #ffffff30}
-.btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px #6585ff35}
-.profile{width:300px;height:370px;flex-shrink:0;z-index:1;border:1px solid #718bff66;border-radius:25px;overflow:hidden;box-shadow:0 0 60px #647eff20;animation:float 5s ease-in-out infinite}
-.profile img{width:100%;height:100%;object-fit:cover}
-@keyframes float{50%{transform:translateY(-13px)}}
-section{padding:100px 9%;scroll-margin-top:85px}
-.heading{text-align:center;margin-bottom:55px}
-.heading small{color:#8ba2ff;letter-spacing:3px;text-transform:uppercase}
-.heading h2{font-size:36px;margin-top:12px}
-.about{max-width:850px;margin:auto;text-align:center;color:var(--muted);line-height:2;font-size:15px}
-.skills,.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.card{background:linear-gradient(145deg,#141a2b,#0d1220);border:1px solid #ffffff12;border-radius:16px;padding:25px;transition:.3s}
-.card:hover{transform:translateY(-7px);border-color:#758dff80}
-.card h3{font-size:16px;margin:15px 0 9px}
-.card p{font-size:13px;line-height:1.8;color:var(--muted)}
-.emoji{font-size:27px}
-.project-label{font-size:11px;color:#9aabff;background:#6585ff19;padding:7px 11px;display:inline-block;border-radius:20px;margin-bottom:15px}
-.timeline{max-width:650px;margin:auto;border-left:1px solid #627fff70;padding-left:30px}
-.timeline-item{position:relative;margin-bottom:35px}
-.timeline-item:before{content:"";position:absolute;left:-36px;top:5px;width:11px;height:11px;background:#8297ff;border-radius:50%}
-.timeline h3{font-size:17px;margin-bottom:8px}
-.timeline p{font-size:13px;color:var(--muted);line-height:1.8}
-.contact{text-align:center}
-.contact p{color:var(--muted);margin:20px auto 30px;line-height:1.8;max-width:500px}
-footer{border-top:1px solid #ffffff15;text-align:center;padding:30px;color:#858da4;font-size:12px}
-.reveal{opacity:0;transform:translateY(25px);transition:.7s}
-.reveal.show{opacity:1;transform:translateY(0)}
-@media(max-width:800px){
-nav{padding:18px 6%}
-.menu{display:block}
-.navlinks{display:none;position:absolute;top:65px;left:0;width:100%;background:#0d1220;padding:25px;flex-direction:column;gap:22px}
-.navlinks.open{display:flex}
-.hero{padding:130px 7% 70px;flex-direction:column-reverse;text-align:center;gap:40px}
-.hero-content{max-width:100%}
-.actions{justify-content:center}
-.profile{width:240px;height:290px}
-section{padding:75px 7%}
-.skills,.projects{grid-template-columns:repeat(2,1fr)}
+:root {
+  --bg:#080810;
+  --card:#11111d;
+  --white:#f5f3ff;
+  --muted:#9998aa;
+  --purple:#a78bfa;
+  --blue:#70c9ff;
+  --border:rgba(255,255,255,.10);
 }
-@media(max-width:500px){
-.skills,.projects{grid-template-columns:1fr}
-.heading h2{font-size:29px}
-h1{letter-spacing:-2px}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Manrope',sans-serif;
+  overflow-x:hidden;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.container {
+  width:min(1160px,90%);
+  margin:auto;
+}
+
+.glow {
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:#8b5cf622;
+  filter:blur(120px);
+  border-radius:50%;
+  z-index:-1;
+  pointer-events:none;
+}
+
+.navbar {
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:100;
+  padding:22px 0;
+  background:rgba(8,8,16,.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+  transition:.3s;
+}
+
+.navbar.scrolled {
+  border-color:var(--border);
+}
+
+.nav-content {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo {
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.logo span {
+  color:var(--purple);
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
+
+.nav-links a {
+  font-size:12px;
+  color:#c5c2d2;
+  transition:.3s;
+}
+
+.nav-links a:hover {
+  color:var(--purple);
+}
+
+.nav-btn,.btn {
+  display:inline-block;
+  padding:13px 20px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  font-size:12px;
+  transition:.3s;
+}
+
+.nav-btn:hover,.btn:hover {
+  border-color:var(--purple);
+  transform:translateY(-3px);
+}
+
+.menu-btn {
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:27px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:50px;
+  padding-top:130px;
+  padding-bottom:80px;
+  position:relative;
+}
+
+.tag {
+  display:inline-block;
+  border:1px solid var(--border);
+  padding:10px 16px;
+  border-radius:30px;
+  font-size:11px;
+  color:#c9c5d8;
+  margin-bottom:30px;
+}
+
+.tag span {
+  color:#9ae6b4;
+}
+
+.eyebrow {
+  color:var(--purple);
+  font-family:'DM Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.hero h1 {
+  font-size:clamp(55px,8vw,100px);
+  line-height:.98;
+  letter-spacing:-7px;
+  margin:22px 0;
+}
+
+.hero h1 span {
+  color:var(--purple);
+}
+
+.hero-subtitle {
+  font-size:22px;
+  color:#d9d5e8;
+  margin-bottom:18px;
+}
+
+.hero-description {
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14px;
+  max-width:520px;
+}
+
+.hero-buttons {
+  display:flex;
+  gap:14px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+
+.btn.primary {
+  background:var(--white);
+  color:#10101a;
+  font-weight:800;
+}
+
+.btn.primary:hover {
+  background:var(--purple);
+  border-color:var(--purple);
+}
+
+.hero-info {
+  margin-top:55px;
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  color:#77768b;
+  font:10px 'DM Mono',monospace;
+  letter-spacing:1px;
+}
+
+/* PROFILE VISUAL */
+
+.visual {
+  display:grid;
+  place-items:center;
+  min-height:480px;
+  position:relative;
+}
+
+.orbit {
+  width:390px;
+  max-width:90%;
+  aspect-ratio:1;
+  border:1px solid #a78bfa40;
+  border-radius:50%;
+  position:absolute;
+  animation:rotate 30s linear infinite;
+}
+
+.orbit:before {
+  content:"";
+  position:absolute;
+  inset:35px;
+  border:1px solid #70c9ff30;
+  border-radius:50%;
+}
+
+.orbit:after {
+  content:"";
+  position:absolute;
+  inset:75px;
+  border:1px dashed #a78bfa40;
+  border-radius:50%;
+}
+
+.profile {
+  width:270px;
+  height:340px;
+  max-width:75%;
+  position:relative;
+  z-index:2;
+  padding:9px;
+  border:1px solid #a78bfa77;
+  background:linear-gradient(145deg,#a78bfa33,#70c9ff11);
+  transform:rotate(3deg);
+  box-shadow:0 30px 90px #0009;
+}
+
+.profile img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.visual-label {
+  position:absolute;
+  bottom:30px;
+  left:0;
+  z-index:3;
+  padding:14px 18px;
+  background:var(--card);
+  border:1px solid var(--border);
+  font:10px 'DM Mono',monospace;
+}
+
+.visual-label strong {
+  display:block;
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+/* MARQUEE */
+
+.marquee {
+  padding:22px 0;
+  overflow:hidden;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  white-space:nowrap;
+  color:#b6b1c8;
+  font:12px 'DM Mono',monospace;
+}
+
+.marquee-inner {
+  display:flex;
+  gap:50px;
+  width:max-content;
+  animation:move 30s linear infinite;
+}
+
+.marquee span {
+  color:var(--purple);
+}
+
+/* COMMON SECTIONS */
+
+section {
+  padding:115px 0;
+}
+
+.section-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:50px;
+}
+
+.section-heading h2 {
+  font-size:clamp(38px,5vw,65px);
+  letter-spacing:-4px;
+  margin-top:15px;
+}
+
+.section-heading p {
+  max-width:350px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+.section-number {
+  font:11px 'DM Mono',monospace;
+  color:var(--purple);
+}
+
+/* STORY */
+
+.story-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border);
+}
+
+.story-card {
+  padding:27px 22px;
+  min-height:250px;
+  border-right:1px solid var(--border);
+  background:linear-gradient(145deg,#ffffff08,transparent);
+  transition:.3s;
+}
+
+.story-card:last-child {
+  border:0;
+}
+
+.story-card:hover {
+  background:#a78bfa12;
+}
+
+.story-card small {
+  color:var(--purple);
+  font:11px 'DM Mono',monospace;
+}
+
+.story-card h3 {
+  font-size:22px;
+  margin:55px 0 12px;
+}
+
+.story-card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display:grid;
+  grid-template-columns:.7fr 1.3fr;
+  gap:80px;
+}
+
+.about-mark {
+  font-size:170px;
+  font-weight:800;
+  color:#ffffff0c;
+  line-height:1;
+  letter-spacing:-15px;
+}
+
+.about-text h3 {
+  font-size:34px;
+  line-height:1.4;
+  letter-spacing:-2px;
+  margin-bottom:25px;
+}
+
+.about-text h3 span {
+  color:var(--purple);
+}
+
+.about-text p {
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+  margin-bottom:17px;
+}
+
+.facts {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:35px;
+}
+
+.fact {
+  border-top:1px solid var(--border);
+  padding-top:15px;
+}
+
+.fact strong {
+  display:block;
+  font-size:16px;
+}
+
+.fact small {
+  color:var(--muted);
+  font:10px 'DM Mono',monospace;
+}
+
+/* SKILLS */
+
+.skills-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.skill-card {
+  padding:27px;
+  min-height:190px;
+  background:linear-gradient(145deg,#171724,#0e0e18);
+  border:1px solid var(--border);
+  transition:.3s;
+}
+
+.skill-card:hover {
+  transform:translateY(-7px);
+  border-color:#a78bfa88;
+}
+
+.skill-card small {
+  font:11px 'DM Mono',monospace;
+  color:var(--purple);
+}
+
+.skill-card h3 {
+  font-size:21px;
+  margin:35px 0 10px;
+}
+
+.skill-card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* PROJECTS */
+
+.project-list {
+  border-top:1px solid var(--border);
+}
+
+.project {
+  display:grid;
+  grid-template-columns:60px 1fr 1.1fr 25px;
+  align-items:center;
+  gap:25px;
+  padding:30px 10px;
+  border-bottom:1px solid var(--border);
+  transition:.3s;
+}
+
+.project:hover {
+  background:#ffffff08;
+  padding-left:20px;
+}
+
+.project-number {
+  color:var(--purple);
+  font:12px 'DM Mono',monospace;
+}
+
+.project h3 {
+  font-size:24px;
+  letter-spacing:-1px;
+}
+
+.project small {
+  color:var(--purple);
+  font:10px 'DM Mono',monospace;
+}
+
+.project p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+.project-arrow {
+  color:var(--purple);
+  font-size:23px;
+}
+
+/* EDUCATION */
+
+.journey {
+  display:grid;
+  grid-template-columns:.7fr 1.3fr;
+  gap:70px;
+}
+
+.journey-intro h2 {
+  font-size:55px;
+  letter-spacing:-4px;
+  line-height:1.05;
+  margin:18px 0;
+}
+
+.journey-intro p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+}
+
+.timeline {
+  border-top:1px solid var(--border);
+}
+
+.timeline-item {
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:20px;
+  padding:27px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.timeline-item time {
+  color:var(--purple);
+  font:11px 'DM Mono',monospace;
+}
+
+.timeline-item h3 {
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.timeline-item p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* CONTACT */
+
+.contact-box {
+  padding:75px;
+  border:1px solid #a78bfa66;
+  background:radial-gradient(circle at 90% 10%,#8b5cf633,transparent 40%),#11111d;
+}
+
+.contact-box h2 {
+  font-size:clamp(45px,7vw,85px);
+  letter-spacing:-6px;
+  line-height:1;
+  margin:20px 0;
+}
+
+.contact-box h2 span {
+  color:var(--purple);
+}
+
+.contact-box p {
+  max-width:500px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:13px;
+  margin-bottom:30px;
+}
+
+.contact-links {
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:55px;
+  font:11px 'DM Mono',monospace;
+  color:#aaa6bb;
+}
+
+footer {
+  padding:30px 0;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:var(--muted);
+  font:10px 'DM Mono',monospace;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes rotate {
+  to {transform:rotate(360deg);}
+}
+
+@keyframes move {
+  to {transform:translateX(-50%);}
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:850px) {
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:75px;
+    left:5%;
+    width:90%;
+    padding:25px;
+    background:#11111d;
+    border:1px solid var(--border);
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .nav-links.open {
+    display:flex;
+  }
+
+  .menu-btn {
+    display:block;
+  }
+
+  .nav-btn {
+    display:none;
+  }
+
+  .hero {
+    grid-template-columns:1fr;
+    padding-top:150px;
+    text-align:center;
+  }
+
+  .hero-description {
+    margin:auto;
+  }
+
+  .hero-buttons,.hero-info {
+    justify-content:center;
+  }
+
+  .visual {
+    min-height:420px;
+  }
+
+  .story-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .story-card:nth-child(2) {
+    border-right:0;
+  }
+
+  .story-card:nth-child(1),
+  .story-card:nth-child(2) {
+    border-bottom:1px solid var(--border);
+  }
+
+  .about-grid,.journey {
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .skills-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .project {
+    grid-template-columns:40px 1fr 20px;
+  }
+
+  .project p {
+    grid-column:2;
+  }
+
+  .project-arrow {
+    grid-column:3;
+    grid-row:1;
+  }
+
+  .contact-box {
+    padding:40px 25px;
+  }
+}
+
+@media(max-width:550px) {
+  .container {
+    width:90%;
+  }
+
+  .hero h1 {
+    font-size:58px;
+    letter-spacing:-4px;
+  }
+
+  section {
+    padding:80px 0;
+  }
+
+  .section-heading {
+    display:block;
+  }
+
+  .section-heading p {
+    margin-top:20px;
+  }
+
+  .story-grid,.skills-grid {
+    grid-template-columns:1fr;
+  }
+
+  .story-card {
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .story-card:last-child {
+    border-bottom:0;
+  }
+
+  .facts {
+    grid-template-columns:1fr;
+  }
+
+  .project {
+    gap:12px;
+  }
+
+  .project h3 {
+    font-size:19px;
+  }
+
+  .timeline-item {
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .journey-intro h2 {
+    font-size:43px;
+  }
+
+  .contact-box h2 {
+    letter-spacing:-3px;
+  }
+
+  footer {
+    flex-direction:column;
+  }
+
+  .visual {
+    min-height:360px;
+  }
+
+  .orbit {
+    width:310px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    animation:none!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
 
 <body>
-<nav>
-<a href="#home" class="logo">Huzaifa<span>.</span></a>
-<button class="menu" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
-<div class="navlinks" id="navlinks">
-<a href="#home" onclick="closeMenu()">Home</a>
-<a href="#about" onclick="closeMenu()">About</a>
-<a href="#skills" onclick="closeMenu()">Skills</a>
-<a href="#projects" onclick="closeMenu()">Projects</a>
-<a href="#education" onclick="closeMenu()">Education</a>
-<a href="#contact" onclick="closeMenu()">Contact</a>
-</div>
-</nav>
+
+<div class="glow" style="top:-200px;right:-150px;"></div>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-content">
+    <a href="#home" class="logo">Huzaifa<span>.</span></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#story">My Approach</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-btn">LET'S CONNECT ↗</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
+</header>
 
 <main>
-<section class="hero" id="home">
-<div class="hero-content">
-<span class="tag">✦ AI AUTOMATION & TECHNOLOGY ENTHUSIAST</span>
-<h1>Hi, I'm <span class="gradient">Huzaifa</span></h1>
-<h2 style="font-size:clamp(20px,3vw,30px);margin-top:12px">I Build Smart Digital Solutions.</h2>
-<p>I'm a BSCS undergraduate student passionate about AI automation, n8n workflows, Python programming and frontend development. I enjoy exploring technology and turning ideas into practical digital solutions.</p>
-<div class="actions">
-<a href="#projects" class="btn primary">Explore My Work ↗</a>
-<a href="#contact" class="btn secondary">Let's Connect</a>
-</div>
-</div>
-<div class="profile">
-<img src="profile.jpg" alt="Huzaifa's profile photo">
-</div>
+
+<!-- HERO SECTION -->
+
+<section class="container hero" id="home">
+
+  <div class="hero-copy reveal">
+    <div class="tag"><span>●</span> BSCS STUDENT · ALWAYS LEARNING</div>
+
+    <div class="eyebrow">INDEPENDENT THINKER / FUTURE BUILDER</div>
+
+    <h1>Ideas into<br><span>intelligent</span><br>experiences.</h1>
+
+    <div class="hero-subtitle">
+      I'm Huzaifa — exploring code, creativity & AI.
+    </div>
+
+    <p class="hero-description">
+      I’m a BSCS undergraduate interested in AI automation,
+      n8n workflows, Python and frontend development.
+      I enjoy learning by building, experimenting with ideas
+      and turning concepts into useful digital experiences.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#projects" class="btn primary">EXPLORE MY WORK ↗</a>
+      <a href="#about" class="btn">DISCOVER MY STORY ↓</a>
+    </div>
+
+    <div class="hero-info">
+      <span>BASED IN PAKISTAN</span>
+      <span>BUILD · LEARN · REPEAT</span>
+    </div>
+  </div>
+
+  <div class="visual reveal">
+    <div class="orbit"></div>
+
+    <div class="profile">
+      <img
+        src="https://raw.githubusercontent.com/26bscs143-alt/huzaifa-portfolio/main/profile.jpg"
+        alt="Huzaifa Rizwan"
+        onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;height:100%;display:grid;place-items:center;font-size:90px;color:#a78bfa;font-weight:800&quot;>H.</div>'"
+      >
+    </div>
+
+    <div class="visual-label">
+      <strong>Huzaifa Rizwan</strong>
+      DIGITAL EXPLORER
+    </div>
+  </div>
+
 </section>
 
-<section id="about">
-<div class="heading"><small>Discover My Journey</small><h2>About Me</h2></div>
-<div class="about">
-I'm Huzaifa, currently pursuing a Bachelor of Science in Computer Science (BSCS). I have explored n8n workflow automation, Meta Ads Management, Python programming and frontend development.
-<br><br>
-I'm passionate about learning new technologies, experimenting with ideas and building practical projects. My goal is to grow as a developer and collaborate on meaningful technology projects.
+<div class="marquee">
+  <div class="marquee-inner">
+    <div>PYTHON <span>✳</span> AI AUTOMATION <span>✳</span> N8N WORKFLOWS <span>✳</span> FRONTEND DEVELOPMENT <span>✳</span> CREATIVE THINKING <span>✳</span></div>
+    <div>PYTHON <span>✳</span> AI AUTOMATION <span>✳</span> N8N WORKFLOWS <span>✳</span> FRONTEND DEVELOPMENT <span>✳</span> CREATIVE THINKING <span>✳</span></div>
+  </div>
 </div>
+
+<!-- STORY SECTION -->
+
+<section class="container" id="story">
+
+  <div class="section-heading reveal">
+    <div>
+      <div class="section-number">01 — MY APPROACH</div>
+      <h2>Every build begins<br>with a question.</h2>
+    </div>
+    <p>
+      I believe good technology starts with curiosity.
+      This is how I approach learning, ideas and the things I build.
+    </p>
+  </div>
+
+  <div class="story-grid">
+
+    <article class="story-card reveal">
+      <small>01 / NOTICE</small>
+      <h3>Stay curious.</h3>
+      <p>Observe everyday problems and ask how technology could make things simpler.</p>
+    </article>
+
+    <article class="story-card reveal">
+      <small>02 / EXPLORE</small>
+      <h3>Learn the pieces.</h3>
+      <p>Understand the tools, experiment with concepts and build a foundation step by step.</p>
+    </article>
+
+    <article class="story-card reveal">
+      <small>03 / CREATE</small>
+      <h3>Make it real.</h3>
+      <p>Turn what I learn into small projects, practical exercises and working ideas.</p>
+    </article>
+
+    <article class="story-card reveal">
+      <small>04 / IMPROVE</small>
+      <h3>Keep evolving.</h3>
+      <p>Reflect, refine and keep moving forward with every new challenge.</p>
+    </article>
+
+  </div>
 </section>
 
-<section id="skills">
-<div class="heading"><small>What I Work With</small><h2>My Skills</h2></div>
-<div class="skills">
-<div class="card"><div class="emoji">🤖</div><h3>AI Automation</h3><p>Exploring intelligent workflows and AI-powered automation solutions.</p></div>
-<div class="card"><div class="emoji">⚙️</div><h3>n8n</h3><p>Building automated workflows and connecting different services.</p></div>
-<div class="card"><div class="emoji">📢</div><h3>Meta Ads Management</h3><p>Learning campaign management and digital advertising fundamentals.</p></div>
-<div class="card"><div class="emoji">🐍</div><h3>Python</h3><p>Programming fundamentals, logical thinking and basic development.</p></div>
-<div class="card"><div class="emoji">🌐</div><h3>Frontend Development</h3><p>Building web interfaces using HTML, CSS and JavaScript.</p></div>
-<div class="card"><div class="emoji">📚</div><h3>Continuous Learning</h3><p>Exploring new tools, technologies and development practices.</p></div>
-</div>
+<!-- ABOUT SECTION -->
+
+<section class="container" id="about">
+
+  <div class="about-grid">
+
+    <div class="reveal">
+      <div class="section-number">02 — THE PERSON</div>
+      <div class="about-mark">H.</div>
+      <div class="eyebrow">A STUDENT OF TECHNOLOGY<br>AND POSSIBILITY.</div>
+    </div>
+
+    <div class="about-text reveal">
+
+      <h3>
+        Not just learning how things work —
+        <span>learning what I can make them do.</span>
+      </h3>
+
+      <p>
+        I’m Huzaifa, a Bachelor of Science in Computer Science
+        student. My interests are growing around AI automation,
+        workflow design, Python programming and the web.
+      </p>
+
+      <p>
+        I have explored n8n workflow automation, Meta Ads
+        Management and frontend fundamentals. I'm still early
+        in my journey, and I see that as an opportunity to
+        understand, test and improve.
+      </p>
+
+      <p>
+        This portfolio is a living record of that process —
+        the concepts I’m learning, the projects I’m exploring
+        and the direction I’m working towards.
+      </p>
+
+      <div class="facts">
+        <div class="fact">
+          <strong>BSCS</strong>
+          <small>Current studies</small>
+        </div>
+
+        <div class="fact">
+          <strong>AI + Code</strong>
+          <small>Areas of interest</small>
+        </div>
+
+        <div class="fact">
+          <strong>Learning</strong>
+          <small>Always in progress</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section id="projects">
-<div class="heading"><small>Things I've Built</small><h2>My Projects</h2></div>
-<div class="projects">
-<div class="card">
-<span class="project-label">Personal Project · n8n</span>
-<div class="emoji">🤖</div>
-<h3>AI Chatbot</h3>
-<p>A mini personal chatbot project built using n8n to explore AI-powered conversations and workflow automation.</p>
-</div>
-<div class="card">
-<span class="project-label">Academic Coursework</span>
-<div class="emoji">💻</div>
-<h3>Programming Fundamentals</h3>
-<p>University coursework and practical exercises focused on programming concepts and problem-solving skills.</p>
-</div>
-<div class="card">
-<span class="project-label">Academic Coursework</span>
-<div class="emoji">🖥️</div>
-<h3>AICT Coursework</h3>
-<p>Academic learning and practical exercises in Information and Communication Technology.</p>
-</div>
-<div class="card">
-<span class="project-label">Academic Coursework</span>
-<div class="emoji">🌐</div>
-<h3>Frontend Practice</h3>
-<p>Learning and practicing the fundamentals of creating web interfaces and understanding web technologies.</p>
-</div>
-</div>
+<!-- SKILLS SECTION -->
+
+<section class="container" id="skills">
+
+  <div class="section-heading reveal">
+    <div>
+      <div class="section-number">03 — THE TOOLKIT</div>
+      <h2>Tools I'm exploring.</h2>
+    </div>
+    <p>
+      A growing toolkit. I focus on understanding
+      the fundamentals before chasing the next technology.
+    </p>
+  </div>
+
+  <div class="skills-grid">
+
+    <article class="skill-card reveal">
+      <small>01 / AUTOMATION</small>
+      <h3>AI Automation</h3>
+      <p>Exploring intelligent workflows and ways to connect tools to reduce repetitive work.</p>
+    </article>
+
+    <article class="skill-card reveal">
+      <small>02 / WORKFLOWS</small>
+      <h3>n8n</h3>
+      <p>Understanding visual workflows that connect services and automate tasks.</p>
+    </article>
+
+    <article class="skill-card reveal">
+      <small>03 / PROGRAMMING</small>
+      <h3>Python</h3>
+      <p>Learning programming fundamentals, problem solving, data types and loops.</p>
+    </article>
+
+    <article class="skill-card reveal">
+      <small>04 / THE WEB</small>
+      <h3>Frontend</h3>
+      <p>Practicing the foundations of web interfaces with HTML, CSS and JavaScript.</p>
+    </article>
+
+    <article class="skill-card reveal">
+      <small>05 / DIGITAL</small>
+      <h3>Meta Ads</h3>
+      <p>Exploring campaign management and the fundamentals of digital advertising.</p>
+    </article>
+
+    <article class="skill-card reveal">
+      <small>06 / MINDSET</small>
+      <h3>Continuous Learning</h3>
+      <p>Learning through coursework, hands-on practice, experimentation and feedback.</p>
+    </article>
+
+  </div>
 </section>
 
-<section id="education">
-<div class="heading"><small>My Academic Journey</small><h2>Education</h2></div>
-<div class="timeline">
-<div class="timeline-item">
-<h3>Bachelor of Science in Computer Science (BSCS)</h3>
-<p>Currently pursuing undergraduate studies.</p>
-</div>
-<div class="timeline-item">
-<h3>Technical Coursework</h3>
-<p>AICT, Programming Fundamentals, AICT Lab and PF Lab.</p>
-</div>
-<div class="timeline-item">
-<h3>Additional Subjects</h3>
-<p>English and Islamiat.</p>
-</div>
-<div class="timeline-item">
-<h3>Independent Learning</h3>
-<p>n8n, AI Automation, Python, Meta Ads Management and frontend development.</p>
-</div>
-</div>
+<!-- PROJECTS SECTION -->
+
+<section class="container" id="projects">
+
+  <div class="section-heading reveal">
+    <div>
+      <div class="section-number">04 — SELECTED EXPLORATIONS</div>
+      <h2>Learning by making.</h2>
+    </div>
+    <p>
+      A selection of personal exploration and academic work.
+      More detailed case studies will be added as projects grow.
+    </p>
+  </div>
+
+  <div class="project-list">
+
+    <article class="project reveal">
+      <div class="project-number">01</div>
+      <div>
+        <small>PERSONAL EXPLORATION · N8N</small>
+        <h3>AI Chatbot</h3>
+      </div>
+      <p>A mini chatbot project exploring AI-powered conversations and workflow automation.</p>
+      <span class="project-arrow">↗</span>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-number">02</div>
+      <div>
+        <small>ACADEMIC · PROGRAMMING</small>
+        <h3>Programming Fundamentals</h3>
+      </div>
+      <p>Coursework and practical exercises focused on programming concepts, logic and problem-solving.</p>
+      <span class="project-arrow">↗</span>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-number">03</div>
+      <div>
+        <small>ACADEMIC · ICT</small>
+        <h3>AICT Coursework</h3>
+      </div>
+      <p>Academic learning and practical exercises in Information and Communication Technology.</p>
+      <span class="project-arrow">↗</span>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-number">04</div>
+      <div>
+        <small>PRACTICE · WEB</small>
+        <h3>Frontend Experiments</h3>
+      </div>
+      <p>Small experiments to understand structure, styling, responsive layouts and web interactions.</p>
+      <span class="project-arrow">↗</span>
+    </article>
+
+  </div>
+
 </section>
 
-<section id="contact" class="contact">
-<div class="heading"><small>Get In Touch</small><h2>Let's Connect</h2></div>
-<p>I'm open to learning opportunities, collaborations and projects in AI automation, Python and frontend development.</p>
-<div class="actions" style="justify-content:center">
-<a class="btn primary" href="mailto:26bscs143@student.hitms.edu.pk">Email Me ↗</a>
-</div>
-<p style="font-size:12px;margin-top:20px">26bscs143@student.hitms.edu.pk</p>
+<!-- EDUCATION SECTION -->
+
+<section class="container" id="journey">
+
+  <div class="journey">
+
+    <div class="journey-intro reveal">
+      <div class="section-number">05 — THE JOURNEY</div>
+      <h2>A foundation<br>for what's next.</h2>
+      <p>
+        Every class, exercise and independent learning session
+        adds another piece to the bigger picture.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <article class="timeline-item reveal">
+        <time>NOW / PRESENT</time>
+        <div>
+          <h3>Bachelor of Science in Computer Science</h3>
+          <p>Currently pursuing undergraduate studies and strengthening core computer science foundations.</p>
+        </div>
+      </article>
+
+      <article class="timeline-item reveal">
+        <time>COURSEWORK</time>
+        <div>
+          <h3>Core Academic Learning</h3>
+          <p>Programming Fundamentals, AICT, AICT Lab, PF Lab and supporting subjects.</p>
+        </div>
+      </article>
+
+      <article class="timeline-item reveal">
+        <time>SELF-LEARNING</time>
+        <div>
+          <h3>Exploring Beyond Class</h3>
+          <p>n8n, AI automation, Python, Meta Ads Management and frontend development.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
 </section>
+
+<!-- CONTACT SECTION -->
+
+<section class="container" id="contact">
+
+  <div class="contact-box reveal">
+
+    <div class="section-number">06 — THE NEXT CHAPTER</div>
+
+    <h2>Have an idea?<br><span>Let's connect.</span></h2>
+
+    <p>
+      I'm open to learning opportunities, thoughtful collaborations
+      and conversations around AI automation, Python and
+      frontend development.
+    </p>
+
+    <a href="mailto:26bscs143@student.hitms.edu.pk" class="btn primary">
+      SEND ME AN EMAIL ↗
+    </a>
+
+    <div class="contact-links">
+      <span>26bscs143@student.hitms.edu.pk</span>
+      <a href="https://github.com/26bscs143-alt" target="_blank" rel="noopener">GITHUB ↗</a>
+      <span>PAKISTAN</span>
+    </div>
+
+  </div>
+</section>
+
 </main>
 
-<footer>© 2026 Huzaifa. Built with passion and continuous learning.</footer>
+<footer class="container">
+  <span>© 2026 HUZAIFA RIZWAN</span>
+  <span>BUILT WITH CURIOSITY.</span>
+  <a href="#home">BACK TO TOP ↑</a>
+</footer>
 
 <script>
-function toggleMenu(){
-document.getElementById('navlinks').classList.toggle('open');
-}
-function closeMenu(){
-document.getElementById('navlinks').classList.remove('open');
-}
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting)entry.target.classList.add('show');
+
+// NAVBAR SCROLL EFFECT
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 30);
 });
-},{threshold:0.12});
-document.querySelectorAll('.card,.heading,.about,.timeline-item').forEach(el=>{
-el.classList.add('reveal');
-observer.observe(el);
+
+// MOBILE MENU
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+  menuBtn.textContent = navLinks.classList.contains("open") ? "×" : "☰";
 });
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.textContent = "☰";
+  });
+});
+
+// SCROLL REVEAL ANIMATION
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold:0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
 </script>
+
 </body>
 </html>
