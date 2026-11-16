@@ -4,1007 +4,362 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huzaifa Rizwan — Technology & AI</title>
-<meta name="description" content="Huzaifa Rizwan — Computer Science student exploring AI, Data Science and technology.">
-
+<title>Huzaifa | Developer & AI Enthusiast</title>
+<meta name="description" content="Huzaifa Rizwan — BSCS student exploring software development, AI, data science and automation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#10110f;
-  --surface:#191a17;
-  --surface2:#20211d;
-  --white:#f1f0e9;
-  --muted:#a09f94;
-  --lime:#d2ff57;
-  --line:rgba(241,240,233,.15);
-  --mono:'DM Mono',monospace;
-  --display:'Space Grotesk',sans-serif;
-  --body:'DM Sans',sans-serif;
+ --bg:#10110f;--panel:#181a17;--panel2:#20231e;
+ --text:#f2f2e9;--muted:#999d91;--lime:#d6ff62;
+ --line:rgba(255,255,255,.11);--mono:'DM Mono',monospace;
+ --display:'Space Grotesk',sans-serif;--body:'DM Sans',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:auto}
-body{
-  background:var(--bg);
-  color:var(--white);
-  font-family:var(--body);
-  overflow-x:hidden;
-}
-body.loading{overflow:hidden}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
-::selection{background:var(--lime);color:var(--bg)}
-.container{width:min(1240px,88%);margin:auto}
-.mono{font-family:var(--mono)}
-.lime{color:var(--lime)}
-.muted{color:var(--muted)}
-.eyebrow{
-  font:11px var(--mono);
-  letter-spacing:1.8px;
-  text-transform:uppercase;
-  color:var(--lime);
-}
-.rule{height:1px;background:var(--line);width:100%}
-
-/* INTRO */
-.loader{
-  position:fixed;inset:0;background:var(--lime);
-  z-index:1000;display:grid;place-items:center;
-  color:var(--bg);
-}
-.loader-inner{font:700 clamp(30px,7vw,80px) var(--display);letter-spacing:-5px}
-.loader-inner span{display:inline-block;animation:loaderPulse .8s infinite alternate}
-@keyframes loaderPulse{to{opacity:.25;transform:translateY(-8px)}}
-
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;width:100%;z-index:100;
-  padding:23px 0;transition:background .35s,padding .35s;
-}
-nav.scrolled{
-  background:rgba(16,17,15,.91);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--line);
-  padding:15px 0;
-}
+::selection{background:var(--lime);color:#111}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.container{width:min(1160px,90%);margin:auto}
+.eyebrow{font:11px var(--mono);letter-spacing:2px;text-transform:uppercase;color:var(--lime)}
+.section{padding:115px 0;position:relative}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:48px}
+.section-head h2{font:600 clamp(38px,6vw,68px)/1 var(--display);letter-spacing:-3px}
+.section-head p{max-width:330px;color:var(--muted);font-size:14px;line-height:1.8}
+nav{height:78px;position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;background:rgba(16,17,15,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
-.brand{font:700 23px var(--display);letter-spacing:-1.5px}
-.brand span{color:var(--lime)}
+.logo{font:700 22px var(--display);letter-spacing:-1px}
+.logo span{color:var(--lime)}
 .nav-links{display:flex;align-items:center;gap:29px}
-.nav-links a{
-  font:10px var(--mono);color:#c2c1b8;
-  transition:color .25s;
-}
+.nav-links a{font-size:12px;color:#c0c2b9;transition:.25s}
 .nav-links a:hover{color:var(--lime)}
-.nav-contact{
-  border:1px solid var(--line);padding:11px 16px;
+.nav-cta{border:1px solid var(--lime);padding:11px 17px;border-radius:3px;color:var(--lime)!important}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{min-height:790px;padding:160px 0 75px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:570px;height:570px;right:-120px;top:90px;border-radius:50%;background:radial-gradient(circle,rgba(214,255,98,.11),transparent 68%);filter:blur(10px)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:45px;position:relative}
+.hero h1{font:700 clamp(62px,10vw,118px)/.91 var(--display);letter-spacing:-8px;margin:24px 0}
+.hero h1 span{color:var(--lime)}
+.hero-sub{font-size:17px;color:#b8bbb0;line-height:1.8;max-width:520px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 21px;font-size:12px;font-weight:700;letter-spacing:.4px;transition:.25s;border:1px solid var(--line)}
+.btn-primary{background:var(--lime);color:#111;border-color:var(--lime)}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 12px 35px #d6ff6230}
+.btn-outline:hover{border-color:var(--lime);color:var(--lime)}
+.hero-meta{display:flex;gap:25px;margin-top:48px;flex-wrap:wrap}
+.meta-item{font:10px var(--mono);color:var(--muted);letter-spacing:1px}
+.meta-item b{display:block;color:var(--text);font:500 13px var(--body);margin-top:7px;letter-spacing:0}
+.hero-art{height:420px;position:relative;display:grid;place-items:center}
+.art-ring{position:absolute;border:1px solid rgba(214,255,98,.25);border-radius:50%;animation:spin 24s linear infinite}
+.ring-one{width:330px;height:330px}
+.ring-two{width:250px;height:250px;animation-direction:reverse;animation-duration:18s;border-style:dashed}
+.ring-three{width:390px;height:390px;opacity:.35;animation-duration:35s}
+.art-core{width:190px;height:190px;background:linear-gradient(145deg,#dfff87,#a6d936);border-radius:35% 65% 58% 42% / 42% 38% 62% 58%;display:grid;place-items:center;color:#14170e;font:700 58px var(--display);box-shadow:0 0 100px #d6ff6230;animation:morph 8s ease-in-out infinite}
+.orbit-dot{position:absolute;width:13px;height:13px;background:var(--lime);border-radius:50%;top:42px;left:50%;box-shadow:0 0 25px var(--lime)}
+.float-label{position:absolute;background:#20231e;border:1px solid var(--line);padding:12px 15px;font:10px var(--mono);color:var(--lime)}
+.float-a{top:48px;right:0}.float-b{bottom:45px;left:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes morph{0%,100%{border-radius:35% 65% 58% 42% / 42% 38% 62% 58%}50%{border-radius:60% 40% 35% 65% / 55% 60% 40% 45%}}
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:#151713}
+.ticker-track{display:flex;white-space:nowrap;animation:marquee 28s linear infinite;width:max-content}
+.ticker span{font:12px var(--mono);letter-spacing:2px;color:#c3c7b9;padding:0 32px}
+.ticker i{font-style:normal;color:var(--lime);padding-left:30px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.intro-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:65px}
+.intro-number{font:100px/.9 var(--display);color:#30352a;letter-spacing:-8px}
+.intro-copy h3{font:500 clamp(26px,3.3vw,40px)/1.25 var(--display);letter-spacing:-1.3px;margin-bottom:22px}
+.intro-copy h3 span{color:var(--lime)}
+.intro-copy p{color:var(--muted);font-size:15px;line-height:1.9;margin-bottom:15px}
+.about-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:55px}
+.info-card{background:var(--panel);border:1px solid var(--line);padding:25px;min-height:180px;transition:.3s}
+.info-card:hover{transform:translateY(-6px);border-color:#d6ff6260}
+.info-card .symbol{font-size:25px;color:var(--lime);margin-bottom:24px}
+.info-card h4{font:600 18px var(--display);margin-bottom:9px}
+.info-card p{font-size:12px;line-height:1.7;color:var(--muted)}
+.skills-section{background:#151713}
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.skill-card{padding:25px;background:var(--panel);border:1px solid var(--line);min-height:190px;position:relative;overflow:hidden;transition:.3s}
+.skill-card:hover{border-color:var(--lime);transform:translateY(-5px)}
+.skill-card .skill-icon{font:500 30px var(--display);color:var(--lime);margin-bottom:27px}
+.skill-card h3{font:600 20px var(--display);margin-bottom:7px}
+.skill-card p{font-size:12px;color:var(--muted);line-height:1.7}
+.skill-status{position:absolute;top:22px;right:20px;font:9px var(--mono);color:var(--lime);border:1px solid #d6ff6245;padding:6px 8px}
+.skill-card:after{content:"";position:absolute;width:100px;height:100px;right:-50px;bottom:-60px;border-radius:50%;background:#d6ff620b}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.project-card{background:var(--panel);border:1px solid var(--line);overflow:hidden;transition:.35s}
+.project-card:hover{transform:translateY(-7px);border-color:#d6ff6270}
+.project-visual{height:235px;display:grid;place-items:center;position:relative;overflow:hidden;background:#20251b}
+.project-visual.purple{background:#211d2a}.project-visual.blue{background:#17232b}.project-visual.orange{background:#292219}
+.visual-window{width:76%;height:150px;background:#11140f;border:1px solid #ffffff25;border-radius:8px;padding:13px;box-shadow:0 20px 45px #0008;transform:rotate(-4deg);transition:.4s}
+.project-card:hover .visual-window{transform:rotate(0) scale(1.04)}
+.window-dots{display:flex;gap:5px;margin-bottom:15px}
+.window-dots i{width:6px;height:6px;border-radius:50%;background:#72766c}
+.visual-line{height:7px;background:#333a2c;margin:9px 0;border-radius:5px;width:80%}
+.visual-line.short{width:45%}
+.visual-highlight{height:42px;background:#d6ff6220;border:1px solid #d6ff6240;margin-top:12px;border-radius:5px}
+.visual-code{font:11px var(--mono);line-height:2;color:#b7d978}
+.visual-code span{color:var(--lime)}
+.visual-big{font:700 52px var(--display);color:var(--lime);letter-spacing:-4px}
+.project-info{padding:25px}
+.project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
+.project-top span{font:10px var(--mono);color:var(--lime);letter-spacing:1px}
+.project-top b{font-size:18px;color:#777}
+.project-info h3{font:600 23px var(--display);margin-bottom:10px}
+.project-info p{font-size:13px;line-height:1.8;color:var(--muted);min-height:70px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:19px}
+.tags span{font:9px var(--mono);padding:7px 9px;background:#ffffff09;border:1px solid var(--line);color:#c3c7b9}
+.project-note{font-size:11px;color:var(--muted);margin-top:22px}
+.journey{background:#151713}
+.timeline{position:relative;max-width:850px;margin:0 auto}
+.timeline:before{content:"";position:absolute;left:10px;top:10px;bottom:10px;width:1px;background:#42483a}
+.timeline-item{position:relative;padding:0 0 45px 55px}
+.timeline-item:before{content:"";position:absolute;left:4px;top:5px;width:13px;height:13px;background:var(--lime);border-radius:50%;box-shadow:0 0 18px #d6ff6250}
+.timeline-date{font:10px var(--mono);letter-spacing:1px;color:var(--lime);margin-bottom:12px}
+.timeline-item h3{font:600 22px var(--display);margin-bottom:8px}
+.timeline-item p{font-size:13px;line-height:1.8;color:var(--muted);max-width:650px}
+.contact-panel{background:var(--lime);color:#111;padding:65px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
+.contact-panel:after{content:"LET'S TALK";position:absolute;font:700 100px var(--display);color:#11108;right:-15px;bottom:-35px;opacity:.07;white-space:nowrap}
+.contact-panel .eyebrow{color:#38451e}
+.contact-panel h2{font:700 clamp(40px,6vw,68px)/1 var(--display);letter-spacing:-4px;margin:18px 0}
+.contact-panel p{font-size:14px;max-width:480px;line-height:1.8;color:#354020}
+.contact-actions{display:flex;flex-direction:column;gap:12px;z-index:1}
+.contact-btn{display:flex;align-items:center;gap:12px;padding:15px 20px;background:#111;color:white;font-size:12px;font-weight:700;min-width:175px;transition:.25s}
+.contact-btn:hover{transform:translateX(5px)}
+.contact-btn svg{width:20px;height:20px;fill:currentColor}
+footer{padding:35px 0;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-inner p{font:10px var(--mono);color:var(--muted)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:12px;color:var(--muted)}
+.footer-links a:hover{color:var(--lime)}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:800px){
+ .nav-links{display:none;position:absolute;top:78px;left:0;right:0;background:#151713;padding:25px 5%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+ .nav-links.open{display:flex}.menu-btn{display:block}
+ .hero{min-height:auto;padding:145px 0 75px}
+ .hero-grid{grid-template-columns:1fr}.hero-art{height:340px;grid-row:1}
+ .hero h1{letter-spacing:-5px}.ring-one{width:260px;height:260px}.ring-two{width:200px;height:200px}.ring-three{width:310px;height:310px}.art-core{width:150px;height:150px;font-size:45px}
+ .intro-grid{grid-template-columns:1fr;gap:25px}.intro-number{font-size:70px}
+ .about-cards{grid-template-columns:1fr 1fr}
+ .skill-grid{grid-template-columns:1fr 1fr}
+ .contact-panel{grid-template-columns:1fr;padding:40px 28px}
+ .contact-actions{flex-direction:row;flex-wrap:wrap}
+}
+@media(max-width:540px){
+ .section{padding:80px 0}.section-head{display:block}.section-head p{margin-top:17px}
+ .hero h1{font-size:65px}.hero-sub{font-size:15px}
+ .hero-art{height:290px}.ring-one{width:220px;height:220px}.ring-two{width:170px;height:170px}.ring-three{width:260px;height:260px}
+ .about-cards,.skill-grid,.projects-grid{grid-template-columns:1fr}
+ .project-visual{height:200px}
+ .footer-inner{flex-direction:column;align-items:flex-start}
+ .contact-panel h2{letter-spacing:-2px}
 }
-.menu{
-  display:none;background:none;color:var(--white);
-  border:0;font-size:25px;cursor:pointer;
-}
-
-/* HERO */
-.hero{
-  min-height:100svh;display:flex;align-items:center;
-  padding:155px 0 80px;position:relative;
-}
-.hero-top{
-  display:flex;align-items:center;gap:12px;
-  margin-bottom:35px;
-}
-.hero-top .circle{
-  height:8px;width:8px;border-radius:50%;
-  background:var(--lime);
-}
-.hero-grid{
-  display:grid;grid-template-columns:1.25fr .75fr;
-  align-items:center;gap:45px;
-}
-.hero h1{
-  font:700 clamp(65px,10vw,140px)/.84 var(--display);
-  letter-spacing:-.095em;
-  text-transform:uppercase;
-}
-.hero h1 .second{
-  display:block;color:var(--lime);
-  margin-top:14px;
-}
-.hero-bottom{
-  margin-top:45px;display:flex;justify-content:space-between;
-  align-items:flex-end;gap:30px;
-}
-.hero-description{
-  max-width:460px;color:var(--muted);
-  font-size:15px;line-height:1.9;
-}
-.hero-buttons{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;gap:22px;
-  padding:14px 18px;font:11px var(--mono);
-  border:1px solid var(--line);transition:.3s;
-}
-.btn.primary{background:var(--lime);color:var(--bg);border-color:var(--lime)}
-.btn:hover{transform:translateY(-4px);border-color:var(--lime)}
-.btn.primary:hover{background:#e3ff9a}
-.hero-side{
-  min-height:400px;display:flex;align-items:center;
-  justify-content:center;position:relative;
-}
-.hero-art{
-  width:min(100%,370px);aspect-ratio:4/5;
-  background:var(--surface);position:relative;
-  overflow:hidden;border:1px solid var(--line);
-}
-.hero-art:before{
-  content:"";position:absolute;width:280px;height:280px;
-  border:1px solid rgba(210,255,87,.45);border-radius:50%;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-}
-.hero-art:after{
-  content:"";position:absolute;width:210px;height:210px;
-  border:1px solid rgba(210,255,87,.3);border-radius:50%;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-}
-.art-center{
-  position:absolute;inset:0;display:grid;place-items:center;
-  z-index:2;
-}
-.art-center strong{
-  font:700 clamp(85px,12vw,150px) var(--display);
-  letter-spacing:-.1em;color:var(--lime);
-}
-.art-label{
-  position:absolute;left:22px;bottom:20px;
-  font:10px var(--mono);letter-spacing:1px;color:var(--muted);
-}
-.art-top{
-  position:absolute;right:20px;top:20px;
-  font:10px var(--mono);color:var(--lime);z-index:3;
-}
-.art-orbit{
-  position:absolute;width:12px;height:12px;
-  border-radius:50%;background:var(--lime);
-  left:50%;top:12%;z-index:4;
-  box-shadow:0 0 20px var(--lime);
-  animation:orbit 9s linear infinite;
-}
-@keyframes orbit{to{transform:rotate(360deg) translateX(135px) rotate(-360deg)}}
-.hero-index{
-  position:absolute;right:0;bottom:0;
-  font:10px var(--mono);color:var(--muted);
-}
-.hero-scroll{
-  position:absolute;bottom:30px;left:6%;
-  font:10px var(--mono);letter-spacing:2px;color:var(--muted);
-}
-
-/* TICKER */
-.ticker{
-  padding:20px 0;overflow:hidden;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.ticker-track{
-  display:flex;width:max-content;
-  animation:ticker 32s linear infinite;
-}
-.ticker-track span{
-  font:600 15px var(--display);
-  letter-spacing:2px;padding:0 28px;
-  white-space:nowrap;
-}
-.ticker-track b{color:var(--lime);margin-left:45px}
-@keyframes ticker{to{transform:translateX(-50%)}}
-
-/* SECTIONS */
-section.content-section{padding:125px 0}
-.section-top{
-  display:flex;justify-content:space-between;
-  align-items:flex-start;gap:30px;margin-bottom:55px;
-}
-.section-number{font:11px var(--mono);color:var(--lime)}
-.section-title{
-  font:700 clamp(43px,7vw,86px)/.98 var(--display);
-  letter-spacing:-.075em;text-transform:uppercase;
-  max-width:780px;
-}
-.section-title em{font-style:normal;color:var(--lime)}
-.section-note{
-  max-width:250px;color:var(--muted);
-  font-size:12px;line-height:1.8;
-}
-
-/* FOUR ACTS */
-.acts{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);
-}
-.act{
-  padding:25px 20px 30px 0;
-  border-right:1px solid var(--line);
-  min-height:260px;position:relative;
-}
-.act:not(:first-child){padding-left:20px}
-.act:last-child{border-right:0}
-.act-num{font:11px var(--mono);color:var(--lime)}
-.act h3{
-  font:600 26px/1.08 var(--display);
-  letter-spacing:-1.3px;margin:65px 0 14px;
-}
-.act p{font-size:12px;line-height:1.8;color:var(--muted);max-width:220px}
-.act-symbol{
-  position:absolute;right:18px;top:23px;
-  color:var(--lime);font-size:20px;
-  transition:transform .4s;
-}
-.act:hover .act-symbol{transform:rotate(45deg)}
-
-/* TRANSFORM */
-.transform{
-  padding:100px 0;
-  background:var(--lime);color:var(--bg);
-}
-.transform-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:60px;
-  align-items:center;
-}
-.transform h2{
-  font:700 clamp(45px,7vw,90px)/.92 var(--display);
-  letter-spacing:-.08em;text-transform:uppercase;
-}
-.transform p{font-size:14px;line-height:1.9;max-width:470px}
-.transform .eyebrow{color:#3e4b1d}
-.transform-mark{
-  font:700 clamp(100px,20vw,220px)/.8 var(--display);
-  text-align:right;letter-spacing:-.12em;
-}
-
-/* ABOUT */
-.about-grid{
-  display:grid;grid-template-columns:.8fr 1.2fr;
-  gap:80px;align-items:start;
-}
-.about-visual{
-  background:var(--surface);border:1px solid var(--line);
-  min-height:390px;display:flex;align-items:center;
-  justify-content:center;position:relative;overflow:hidden;
-}
-.about-visual strong{
-  font:700 125px var(--display);letter-spacing:-.12em;
-  color:var(--lime);
-}
-.about-visual small{
-  position:absolute;left:20px;bottom:20px;
-  font:10px var(--mono);color:var(--muted);
-}
-.about-copy h3{
-  font:600 clamp(25px,3vw,38px)/1.2 var(--display);
-  letter-spacing:-1.5px;margin-bottom:25px;
-}
-.about-copy p{
-  font-size:14px;line-height:2;color:var(--muted);
-  margin-bottom:18px;
-}
-.about-list{margin-top:35px;border-top:1px solid var(--line)}
-.about-row{
-  padding:16px 0;border-bottom:1px solid var(--line);
-  display:flex;gap:25px;font-size:12px;
-}
-.about-row span{font:11px var(--mono);color:var(--lime)}
-
-/* SKILLS */
-.skill-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-.skill-card{
-  background:var(--surface);border:1px solid var(--line);
-  padding:25px;min-height:215px;transition:.35s;
-}
-.skill-card:hover{
-  background:var(--surface2);
-  border-color:var(--lime);
-  transform:translateY(-6px);
-}
-.skill-top{
-  display:flex;justify-content:space-between;
-  font:11px var(--mono);color:var(--lime);
-}
-.skill-card h3{
-  font:600 24px var(--display);
-  letter-spacing:-1px;margin:65px 0 10px;
-}
-.skill-card p{font-size:12px;color:var(--muted);line-height:1.8}
-
-/* PROJECTS */
-.project-feature{
-  display:grid;grid-template-columns:1fr 1fr;
-  min-height:380px;border:1px solid var(--line);
-  margin-bottom:15px;
-}
-.project-visual{
-  background:var(--surface2);
-  display:grid;place-items:center;
-  position:relative;overflow:hidden;min-height:300px;
-}
-.project-visual .visual-word{
-  font:700 clamp(65px,10vw,125px) var(--display);
-  letter-spacing:-.1em;color:var(--lime);
-}
-.project-visual .visual-caption{
-  position:absolute;left:20px;bottom:20px;
-  font:10px var(--mono);color:var(--muted);
-}
-.project-info{
-  padding:45px;display:flex;flex-direction:column;
-  justify-content:center;
-}
-.project-info .eyebrow{margin-bottom:20px}
-.project-info h3{
-  font:600 clamp(28px,4vw,45px)/1.05 var(--display);
-  letter-spacing:-2px;margin-bottom:20px;
-}
-.project-info p{font-size:13px;color:var(--muted);line-height:1.9}
-.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:25px}
-.tags span{
-  font:10px var(--mono);padding:7px 10px;
-  border:1px solid var(--line);color:#d3d2c9;
-}
-.project-small-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
-}
-.small-project{
-  padding:25px;background:var(--surface);
-  border:1px solid var(--line);min-height:220px;
-  transition:.3s;
-}
-.small-project:hover{border-color:var(--lime);transform:translateY(-5px)}
-.small-project .eyebrow{font-size:10px}
-.small-project h3{
-  font:600 21px var(--display);
-  margin:45px 0 12px;
-}
-.small-project p{font-size:12px;color:var(--muted);line-height:1.8}
-
-/* EDUCATION */
-.education-list{border-top:1px solid var(--line)}
-.education-item{
-  display:grid;grid-template-columns:180px 1fr;
-  gap:30px;padding:28px 0;border-bottom:1px solid var(--line);
-}
-.education-date{font:11px var(--mono);color:var(--lime)}
-.education-item h3{
-  font:600 23px var(--display);margin-bottom:9px;
-}
-.education-item p{font-size:13px;color:var(--muted);line-height:1.8}
-
-/* CONTACT */
-.contact{
-  padding:120px 0 80px;
-  background:var(--lime);color:var(--bg);
-}
-.contact .eyebrow{color:#49551e}
-.contact h2{
-  font:700 clamp(60px,11vw,145px)/.85 var(--display);
-  letter-spacing:-.1em;text-transform:uppercase;
-  margin:35px 0;
-}
-.contact-bottom{
-  display:flex;justify-content:space-between;
-  align-items:flex-end;gap:30px;margin-top:65px;
-}
-.contact-bottom p{max-width:360px;font-size:14px;line-height:1.8}
-.contact-btn{
-  display:inline-flex;align-items:center;gap:35px;
-  padding:17px 22px;background:var(--bg);color:var(--lime);
-  font:11px var(--mono);transition:.3s;
-}
-.contact-btn:hover{transform:translateY(-5px);background:#292b22}
-.contact-links{
-  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
-  margin-top:45px;padding-top:25px;border-top:1px solid rgba(0,0,0,.2);
-}
-.contact-links a{
-  font:11px var(--mono);transition:.25s;
-}
-.contact-links a:hover{opacity:.55}
-.whatsapp{
-  width:45px;height:45px;border-radius:50%;
-  border:1px solid rgba(0,0,0,.4);
-  display:grid;place-items:center;
-  transition:.3s;
-}
-.whatsapp:hover{background:var(--bg);color:var(--lime);transform:scale(1.1)}
-.whatsapp svg{width:23px;height:23px;fill:currentColor}
-
-/* FOOTER */
-footer{
-  padding:25px 0;
-  display:flex;justify-content:space-between;
-  gap:20px;color:var(--muted);
-  font:10px var(--mono);
-}
-footer a:hover{color:var(--lime)}
-
-/* ANIMATION */
-.reveal{
-  opacity:0;transform:translateY(35px);
-  transition:opacity .8s ease,transform .8s ease;
-}
-.reveal.show{opacity:1;transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:.01ms!important;
-    transition-duration:.01ms!important;
-  }
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr  .7fr;gap:20px}
-  .hero h1{font-size:clamp(60px,9vw,100px)}
-  .acts{grid-template-columns:repeat(2,1fr)}
-  .act:nth-child(2){border-right:0}
-  .act:nth-child(3){padding-left:0}
-  .about-grid{gap:35px}
-  .skill-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:650px){
-  .container{width:90%}
-  nav{padding:18px 0}
-  .menu{display:block}
-  .nav-links{
-    display:none;position:absolute;top:65px;left:5%;
-    width:90%;padding:25px;background:var(--surface);
-    border:1px solid var(--line);
-    flex-direction:column;align-items:stretch;gap:22px;
-  }
-  .nav-links.open{display:flex}
-  .nav-links a{font-size:12px}
-  .hero{padding-top:130px}
-  .hero-grid{grid-template-columns:1fr}
-  .hero h1{font-size:clamp(62px,15vw,100px)}
-  .hero-side{min-height:330px;margin-top:20px}
-  .hero-art{width:260px}
-  .hero-bottom{display:block}
-  .hero-scroll{display:none}
-  section.content-section{padding:85px 0}
-  .section-top{display:block}
-  .section-note{margin-top:20px}
-  .acts{grid-template-columns:1fr 1fr}
-  .act{min-height:220px}
-  .act h3{font-size:22px;margin-top:50px}
-  .transform-grid{grid-template-columns:1fr;gap:35px}
-  .transform-mark{text-align:left}
-  .about-grid{grid-template-columns:1fr}
-  .about-visual{min-height:260px}
-  .skill-grid{grid-template-columns:1fr 1fr}
-  .skill-card{padding:18px;min-height:190px}
-  .skill-card h3{font-size:19px;margin-top:45px}
-  .project-feature{grid-template-columns:1fr}
-  .project-visual{min-height:240px}
-  .project-info{padding:28px}
-  .project-small-grid{grid-template-columns:1fr}
-  .small-project{min-height:175px}
-  .small-project h3{margin-top:30px}
-  .education-item{grid-template-columns:1fr;gap:12px}
-  .contact{padding:85px 0 55px}
-  .contact-bottom{display:block}
-  .contact-btn{margin-top:25px}
-  .contact h2{font-size:clamp(58px,13vw,95px)}
-  footer{flex-direction:column;align-items:center;text-align:center}
-}
-@media(max-width:380px){
-  .skill-grid{grid-template-columns:1fr}
-  .acts{grid-template-columns:1fr}
-  .act,.act:not(:first-child){padding:20px 0;border-right:0}
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+ .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
+<body>
+<div class="noise"></div>
 
-<body class="loading">
-
-<div class="loader" id="loader">
-  <div class="loader-inner">HR<span>.</span></div>
-</div>
-
-<nav id="navbar">
-  <div class="container nav-inner">
-    <a class="brand" href="#home">H<span>.</span>R</a>
-    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
-    <div class="nav-links" id="navLinks">
-      <a href="#story">STORY</a>
-      <a href="#about">ABOUT</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#education">EDUCATION</a>
-      <a href="#contact" class="nav-contact">LET'S TALK ↗</a>
-    </div>
+<nav>
+ <div class="container nav-inner">
+  <a href="#home" class="logo">HR<span>.</span></a>
+  <div class="nav-links" id="navLinks">
+   <a href="#about">About</a>
+   <a href="#skills">Skills</a>
+   <a href="#projects">Projects</a>
+   <a href="#journey">Journey</a>
+   <a href="#contact" class="nav-cta">Let's Talk ↗</a>
   </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+ </div>
 </nav>
 
 <main>
 <section class="hero" id="home">
-  <div class="container">
-    <div class="hero-top eyebrow">
-      <span class="circle"></span>
-      COMPUTER SCIENCE STUDENT / PAKISTAN
-    </div>
-
-    <div class="hero-grid">
-      <div>
-        <h1 class="hero-heading">
-          HUZAIFA
-          <span class="second">RIZWAN.</span>
-        </h1>
-
-        <div class="hero-bottom">
-          <div>
-            <p class="hero-description">
-              Exploring the intersection of technology, creativity
-              and intelligent systems. Learning to turn ideas
-              into meaningful digital experiences.
-            </p>
-            <div class="hero-buttons">
-              <a class="btn primary" href="#projects">EXPLORE MY WORK <span>↗</span></a>
-              <a class="btn" href="#about">MY STORY <span>↓</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-side">
-        <div class="hero-art">
-          <span class="art-top">EST. 2026 / HR</span>
-          <span class="art-orbit"></span>
-          <div class="art-center"><strong>HR.</strong></div>
-          <span class="art-label">THINK / LEARN / CREATE</span>
-        </div>
-        <span class="hero-index">01 — 07</span>
-      </div>
-    </div>
+ <div class="container hero-grid">
+  <div>
+   <div class="eyebrow">BSCS STUDENT · FUTURE BUILDER</div>
+   <h1>HUZAIFA<br><span>RIZWAN.</span></h1>
+   <p class="hero-sub">Exploring the intersection of code, creativity and intelligent technology. Learning today, building for tomorrow.</p>
+   <div class="hero-actions">
+    <a class="btn btn-primary" href="#projects">EXPLORE MY WORK ↗</a>
+    <a class="btn btn-outline" href="#contact">GET IN TOUCH</a>
+   </div>
+   <div class="hero-meta">
+    <div class="meta-item">CURRENT FOCUS<b>AI · DATA · SOFTWARE</b></div>
+    <div class="meta-item">EDUCATION<b>BS COMPUTER SCIENCE</b></div>
+    <div class="meta-item">BASED IN<b>PAKISTAN</b></div>
+   </div>
   </div>
-  <div class="hero-scroll">SCROLL TO EXPLORE ↓</div>
+  <div class="hero-art">
+   <div class="art-ring ring-three"></div>
+   <div class="art-ring ring-one"></div>
+   <div class="art-ring ring-two"></div>
+   <div class="orbit-dot"></div>
+   <div class="art-core">HR.</div>
+   <div class="float-label float-a">CREATIVE THINKING ↗</div>
+   <div class="float-label float-b">CODE / CREATE / LEARN</div>
+  </div>
+ </div>
 </section>
 
-<div class="ticker">
-  <div class="ticker-track">
-    <span>COMPUTER SCIENCE <b>✳</b></span>
-    <span>ARTIFICIAL INTELLIGENCE <b>✳</b></span>
-    <span>DATA SCIENCE <b>✳</b></span>
-    <span>PYTHON <b>✳</b></span>
-    <span>CREATIVE TECHNOLOGY <b>✳</b></span>
-    <span>COMPUTER SCIENCE <b>✳</b></span>
-    <span>ARTIFICIAL INTELLIGENCE <b>✳</b></span>
-    <span>DATA SCIENCE <b>✳</b></span>
-    <span>PYTHON <b>✳</b></span>
-    <span>CREATIVE TECHNOLOGY <b>✳</b></span>
-  </div>
-</div>
+<div class="ticker"><div class="ticker-track">
+ <span>PYTHON <i>✳</i></span><span>C++ <i>✳</i></span><span>ARTIFICIAL INTELLIGENCE <i>✳</i></span><span>DATA SCIENCE <i>✳</i></span><span>WEB DEVELOPMENT <i>✳</i></span><span>AUTOMATION <i>✳</i></span>
+ <span>PYTHON <i>✳</i></span><span>C++ <i>✳</i></span><span>ARTIFICIAL INTELLIGENCE <i>✳</i></span><span>DATA SCIENCE <i>✳</i></span><span>WEB DEVELOPMENT <i>✳</i></span><span>AUTOMATION <i>✳</i></span>
+</div></div>
 
-<section class="content-section" id="story">
-  <div class="container">
-    <div class="section-top reveal">
-      <div>
-        <div class="section-number">01 / A PROCESS IN FOUR ACTS</div>
-        <h2 class="section-title" style="margin-top:22px">
-          FROM IDEA<br>TO <em>REALITY.</em>
-        </h2>
-      </div>
-      <p class="section-note">
-        A little curiosity can lead to something extraordinary.
-        My approach to learning is built around four simple ideas.
-      </p>
-    </div>
-
-    <div class="acts">
-      <article class="act reveal">
-        <span class="act-num">01 / THE IDEA</span>
-        <span class="act-symbol">↗</span>
-        <h3>Everything starts with curiosity.</h3>
-        <p>Ask questions. Explore possibilities. Look beyond what already exists.</p>
-      </article>
-      <article class="act reveal">
-        <span class="act-num">02 / THE LEARNING</span>
-        <span class="act-symbol">↗</span>
-        <h3>Understand the fundamentals.</h3>
-        <p>Build a strong foundation through computer science and programming.</p>
-      </article>
-      <article class="act reveal">
-        <span class="act-num">03 / THE EXPERIMENT</span>
-        <span class="act-symbol">↗</span>
-        <h3>Turn concepts into practice.</h3>
-        <p>Experiment, build small projects and learn through the process.</p>
-      </article>
-      <article class="act reveal">
-        <span class="act-num">04 / THE CREATION</span>
-        <span class="act-symbol">↗</span>
-        <h3>Make something meaningful.</h3>
-        <p>Use technology and creativity to work towards useful solutions.</p>
-      </article>
-    </div>
+<section class="section" id="about">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">01 / A LITTLE ABOUT ME</div><h2>Curious by nature.<br>Builder by choice.</h2></div>
+   <p>A student journey shaped by curiosity, experimentation and a genuine interest in technology.</p>
   </div>
+  <div class="intro-grid reveal">
+   <div class="intro-number">01—<br>∞</div>
+   <div class="intro-copy">
+    <h3>I'm Huzaifa — a computer science student who enjoys turning <span>ideas into working things.</span></h3>
+    <p>My journey into technology started with curiosity about how software works and how digital products are created. Since then, I've been learning programming, exploring web development and discovering the possibilities of artificial intelligence.</p>
+    <p>I'm currently strengthening my foundations in Python and C++, while exploring AI, Data Science and workflow automation. I believe in learning by building, making mistakes and improving one project at a time.</p>
+   </div>
+  </div>
+  <div class="about-cards">
+   <div class="info-card reveal"><div class="symbol">⌘</div><h4>Problem Solver</h4><p>I enjoy breaking complicated problems into smaller, understandable steps.</p></div>
+   <div class="info-card reveal"><div class="symbol">✳</div><h4>Creative Mind</h4><p>Interested in design, digital experiences and building useful ideas.</p></div>
+   <div class="info-card reveal"><div class="symbol">↗</div><h4>Always Learning</h4><p>Exploring new tools and technologies while improving my fundamentals.</p></div>
+  </div>
+ </div>
 </section>
 
-<section class="transform">
-  <div class="container transform-grid reveal">
-    <div>
-      <span class="eyebrow">A CHANGE IN PERSPECTIVE</span>
-      <h2 style="margin-top:25px">LEARN.<br>THINK.<br>CREATE.</h2>
-      <p style="margin-top:28px">
-        Technology is more than a collection of tools.
-        It's a way to approach problems, explore new ideas
-        and create better possibilities.
-      </p>
-    </div>
-    <div class="transform-mark">HR.</div>
+<section class="section skills-section" id="skills">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">02 / MY TOOLKIT</div><h2>Things I'm learning<br>and working with.</h2></div>
+   <p>A growing toolkit. Some areas are stronger foundations, while others are active learning goals.</p>
   </div>
+  <div class="skill-grid">
+   <article class="skill-card reveal"><span class="skill-status">LEARNING & PRACTICE</span><div class="skill-icon">Py</div><h3>Python</h3><p>Programming fundamentals, data structures, loops and problem-solving practice.</p></article>
+   <article class="skill-card reveal"><span class="skill-status">FOUNDATIONS</span><div class="skill-icon">C++</div><h3>C++</h3><p>Core programming concepts, logic building and object-oriented programming foundations.</p></article>
+   <article class="skill-card reveal"><span class="skill-status">EXPLORING</span><div class="skill-icon">AI</div><h3>Artificial Intelligence</h3><p>Exploring AI concepts, intelligent applications and chatbot workflows.</p></article>
+   <article class="skill-card reveal"><span class="skill-status">EXPLORING</span><div class="skill-icon">DS</div><h3>Data Science</h3><p>Learning how data can be explored, understood and used to find patterns.</p></article>
+   <article class="skill-card reveal"><span class="skill-status">BUILDING</span><div class="skill-icon">&lt;/&gt;</div><h3>Web Development</h3><p>Practising HTML, CSS and JavaScript to create responsive web experiences.</p></article>
+   <article class="skill-card reveal"><span class="skill-status">EXPLORING</span><div class="skill-icon">n8n</div><h3>Workflow Automation</h3><p>Discovering how tools and services can connect through automated workflows.</p></article>
+  </div>
+ </div>
 </section>
 
-<section class="content-section" id="about">
-  <div class="container">
-    <div class="section-top reveal">
-      <div>
-        <div class="section-number">02 / THE PERSON BEHIND THE JOURNEY</div>
-        <h2 class="section-title" style="margin-top:22px">
-          A LITTLE<br>ABOUT <em>ME.</em>
-        </h2>
-      </div>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <strong>HR.</strong>
-        <small>HUZAIFA RIZWAN — COMPUTER SCIENCE</small>
-      </div>
-      <div class="about-copy reveal">
-        <h3>Curious about technology. Interested in what comes next.</h3>
-        <p>
-          I'm Huzaifa Rizwan, currently pursuing a Bachelor's degree
-          in Computer Science. I enjoy exploring technology,
-          understanding how things work and learning new skills.
-        </p>
-        <p>
-          My current learning journey includes Python programming,
-          Artificial Intelligence, Data Science and frontend development.
-          I'm interested in how intelligent systems can help solve
-          real-world problems.
-        </p>
-        <p>
-          I believe in learning step by step, experimenting with ideas
-          and improving through practical experience.
-        </p>
-
-        <div class="about-list">
-          <div class="about-row"><span>01</span> Continuous learning and curiosity</div>
-          <div class="about-row"><span>02</span> Interest in AI and Data Science</div>
-          <div class="about-row"><span>03</span> Programming and logical thinking</div>
-          <div class="about-row"><span>04</span> Creativity and problem solving</div>
-        </div>
-      </div>
-    </div>
+<section class="section" id="projects">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">03 / SELECTED WORK</div><h2>Learning through<br>building.</h2></div>
+   <p>A collection of academic work, experiments and practice projects from my learning journey.</p>
   </div>
+  <div class="projects-grid">
+   <article class="project-card reveal">
+    <div class="project-visual">
+     <div class="visual-window"><div class="window-dots"><i></i><i></i><i></i></div><div class="visual-line"></div><div class="visual-line short"></div><div class="visual-highlight"></div></div>
+    </div>
+    <div class="project-info"><div class="project-top"><span>01 / AI EXPERIMENT</span><b>↗</b></div><h3>AI Chatbot Workflow</h3><p>An introductory chatbot and automation exploration using visual workflow tools. A practical experiment in connecting steps and designing conversational flows.</p><div class="tags"><span>n8n</span><span>AI CONCEPTS</span><span>AUTOMATION</span></div><div class="project-note">Learning project · In progress</div></div>
+   </article>
+   <article class="project-card reveal">
+    <div class="project-visual purple">
+     <div class="visual-window"><div class="window-dots"><i></i><i></i><i></i></div><div class="visual-code"><span>def</span> solve_problem():<br>&nbsp; learn = True<br>&nbsp; practice = <span>daily</span><br>&nbsp; return progress</div></div>
+    </div>
+    <div class="project-info"><div class="project-top"><span>02 / PROGRAMMING</span><b>↗</b></div><h3>Python Practice Collection</h3><p>A growing set of small coding exercises covering variables, conditions, loops, lists and problem-solving fundamentals.</p><div class="tags"><span>PYTHON</span><span>LOGIC</span><span>FUNDAMENTALS</span></div><div class="project-note">Practice collection · Ongoing</div></div>
+   </article>
+   <article class="project-card reveal">
+    <div class="project-visual blue">
+     <div class="visual-window"><div class="window-dots"><i></i><i></i><i></i></div><div class="visual-line"></div><div class="visual-highlight"></div><div class="visual-line short"></div><div class="visual-line"></div></div>
+    </div>
+    <div class="project-info"><div class="project-top"><span>03 / ACADEMIC PROJECT</span><b>↗</b></div><h3>Student Result Management</h3><p>An academic software project focused on organizing student information and result-related records in a structured way.</p><div class="tags"><span>PROGRAMMING</span><span>LOGIC</span><span>ACADEMIC</span></div><div class="project-note">University coursework</div></div>
+   </article>
+   <article class="project-card reveal">
+    <div class="project-visual orange">
+     <div class="visual-big">WEB.</div>
+    </div>
+    <div class="project-info"><div class="project-top"><span>04 / FRONTEND PRACTICE</span><b>↗</b></div><h3>Responsive Web Experiments</h3><p>Exploring layouts, typography, responsive design and interactive details while learning how modern websites are structured.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span></div><div class="project-note">Practice work · Growing collection</div></div>
+   </article>
+  </div>
+ </div>
 </section>
 
-<section class="content-section" id="skills">
-  <div class="container">
-    <div class="section-top reveal">
-      <div>
-        <div class="section-number">03 / A PRACTICAL TOOLKIT</div>
-        <h2 class="section-title" style="margin-top:22px">
-          AREAS I'M<br><em>EXPLORING.</em>
-        </h2>
-      </div>
-      <p class="section-note">
-        These are my current learning areas, not a claim
-        of professional expertise.
-      </p>
-    </div>
-
-    <div class="skill-grid">
-      <article class="skill-card reveal">
-        <div class="skill-top"><span>01</span><span>✳</span></div>
-        <h3>Artificial Intelligence</h3>
-        <p>Exploring AI concepts, intelligent systems and machine learning.</p>
-      </article>
-      <article class="skill-card reveal">
-        <div class="skill-top"><span>02</span><span>◈</span></div>
-        <h3>Data Science</h3>
-        <p>Learning about data, patterns, analysis and data-driven thinking.</p>
-      </article>
-      <article class="skill-card reveal">
-        <div class="skill-top"><span>03</span><span>⌘</span></div>
-        <h3>Python</h3>
-        <p>Developing programming foundations, logic and problem-solving skills.</p>
-      </article>
-      <article class="skill-card reveal">
-        <div class="skill-top"><span>04</span><span>◇</span></div>
-        <h3>Frontend</h3>
-        <p>Exploring web interfaces through HTML, CSS and JavaScript.</p>
-      </article>
-      <article class="skill-card reveal">
-        <div class="skill-top"><span>05</span><span>⚙</span></div>
-        <h3>Automation</h3>
-        <p>Learning about workflows and tools such as n8n.</p>
-      </article>
-      <article class="skill-card reveal">
-        <div class="skill-top"><span>06</span><span>⌁</span></div>
-        <h3>Computer Science</h3>
-        <p>Strengthening academic foundations and computational thinking.</p>
-      </article>
-    </div>
+<section class="section journey" id="journey">
+ <div class="container">
+  <div class="section-head reveal">
+   <div><div class="eyebrow">04 / THE JOURNEY</div><h2>One step at<br>a time.</h2></div>
+   <p>My education and learning path — a work in progress, with plenty more to explore.</p>
   </div>
+  <div class="timeline">
+   <div class="timeline-item reveal"><div class="timeline-date">CURRENT</div><h3>BS Computer Science</h3><p>Studying computer science and developing a foundation in programming, computing and problem-solving.</p></div>
+   <div class="timeline-item reveal"><div class="timeline-date">ONGOING LEARNING</div><h3>Programming Foundations</h3><p>Practising Python and C++, improving coding logic and understanding core programming concepts.</p></div>
+   <div class="timeline-item reveal"><div class="timeline-date">EXPLORING</div><h3>AI, Data Science & Automation</h3><p>Building awareness of emerging technologies and exploring how they can be used to solve practical problems.</p></div>
+  </div>
+ </div>
 </section>
 
-<section class="content-section" id="projects">
-  <div class="container">
-    <div class="section-top reveal">
-      <div>
-        <div class="section-number">04 / SELECTED WORK</div>
-        <h2 class="section-title" style="margin-top:22px">
-          MADE TO<br><em>LEARN.</em>
-        </h2>
-      </div>
-      <p class="section-note">
-        Academic coursework and personal learning projects
-        from my journey into technology.
-      </p>
-    </div>
-
-    <article class="project-feature reveal">
-      <div class="project-visual">
-        <span class="visual-word">AI.</span>
-        <span class="visual-caption">PERSONAL LEARNING PROJECT / 01</span>
-      </div>
-      <div class="project-info">
-        <span class="eyebrow">01 / AI & AUTOMATION</span>
-        <h3>AI Chatbot Exploration</h3>
-        <p>
-          A personal learning project exploring AI-powered
-          conversations and workflow automation using n8n.
-          An opportunity to understand how connected systems work.
-        </p>
-        <div class="tags">
-          <span>AI</span><span>n8n</span><span>Automation</span>
-        </div>
-      </div>
-    </article>
-
-    <div class="project-small-grid">
-      <article class="small-project reveal">
-        <span class="eyebrow">02 / PROGRAMMING</span>
-        <h3>Python Practice</h3>
-        <p>Exercises covering variables, conditions, loops, lists and programming fundamentals.</p>
-      </article>
-      <article class="small-project reveal">
-        <span class="eyebrow">03 / ACADEMIC</span>
-        <h3>Student Result Management</h3>
-        <p>An academic project exploring the structure of a student result management system.</p>
-      </article>
-      <article class="small-project reveal">
-        <span class="eyebrow">04 / WEB</span>
-        <h3>Frontend Practice</h3>
-        <p>Learning the fundamentals of web interfaces and responsive page layouts.</p>
-      </article>
-    </div>
+<section class="section" id="contact">
+ <div class="container">
+  <div class="contact-panel reveal">
+   <div>
+    <div class="eyebrow">05 / HAVE AN IDEA?</div>
+    <h2>Let's create<br>something useful.</h2>
+    <p>Have a project idea, a question or an opportunity to collaborate? Feel free to reach out. I'm always open to learning and connecting.</p>
+   </div>
+   <div class="contact-actions">
+    <a class="contact-btn" href="https://wa.me/923182401969" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.1 0C5.55 0 .22 5.32.22 11.88c0 2.1.55 4.15 1.6 5.96L.12 24l6.32-1.66a11.9 11.9 0 0 0 5.65 1.44h.01c6.55 0 11.88-5.33 11.88-11.88a11.8 11.8 0 0 0-3.46-8.42ZM12.1 21.77a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.75.98 1-3.65-.23-.38a9.85 9.85 0 0 1-1.51-5.25c0-5.46 4.44-9.9 9.9-9.9a9.84 9.84 0 0 1 7 2.9 9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.41c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.53.08-.81.38-.28.3-1.06 1.03-1.06 2.5s1.09 2.9 1.24 3.1c.15.2 2.15 3.28 5.2 4.6.73.32 1.3.51 1.75.65.74.24 1.41.2 1.94.12.59-.09 1.77-.73 2.02-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35Z"/></svg>
+     WhatsApp ↗
+    </a>
+    <a class="contact-btn" href="mailto:26bscs143@student.hitms.edu.pk">✉ Email Me ↗</a>
+    <a class="contact-btn" href="https://github.com/26bscs143-alt" target="_blank" rel="noopener">⌘ GitHub ↗</a>
+   </div>
   </div>
-</section>
-
-<section class="content-section" id="education">
-  <div class="container">
-    <div class="section-top reveal">
-      <div>
-        <div class="section-number">05 / LEARNING IN PROGRESS</div>
-        <h2 class="section-title" style="margin-top:22px">
-          EDUCATION<br>& <em>GROWTH.</em>
-        </h2>
-      </div>
-    </div>
-
-    <div class="education-list">
-      <article class="education-item reveal">
-        <div class="education-date">CURRENTLY</div>
-        <div>
-          <h3>Bachelor of Science in Computer Science</h3>
-          <p>Undergraduate studies focused on computer science, programming and technology.</p>
-        </div>
-      </article>
-      <article class="education-item reveal">
-        <div class="education-date">COURSEWORK</div>
-        <div>
-          <h3>Computer Science Fundamentals</h3>
-          <p>Programming Fundamentals, AICT, practical labs and other academic subjects.</p>
-        </div>
-      </article>
-      <article class="education-item reveal">
-        <div class="education-date">INDEPENDENT LEARNING</div>
-        <div>
-          <h3>Python, AI & Data Science</h3>
-          <p>Exploring new concepts through independent study, practice and small projects.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="container">
-    <span class="eyebrow">06 / THE NEXT CHAPTER</span>
-    <h2>LET'S BUILD<br>SOMETHING<br>GREAT.</h2>
-
-    <div class="contact-bottom">
-      <p>
-        Interested in technology, learning opportunities
-        or meaningful collaborations? Let's connect.
-      </p>
-      <a class="contact-btn" href="mailto:26bscs143@student.hitms.edu.pk">
-        SEND A MESSAGE <span>↗</span>
-      </a>
-    </div>
-
-    <div class="contact-links">
-      <a href="mailto:26bscs143@student.hitms.edu.pk">EMAIL ↗</a>
-
-      <a class="whatsapp"
-         href="https://wa.me/923182401969"
-         target="_blank"
-         rel="noopener"
-         aria-label="Contact on WhatsApp"
-         title="WhatsApp">
-
-        <svg viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M16.01 3.2A12.7 12.7 0 0 0 5.05 22.3L3.2 28.8l6.65-1.75A12.8 12.8 0 1 0 16.01 3.2Zm0 23.3c-2.05 0-4.05-.55-5.8-1.6l-.42-.25-3.95 1.04 1.05-3.84-.27-.42a10.5 10.5 0 1 1 9.39 5.07Zm5.75-7.85c-.32-.16-1.9-.94-2.2-1.04-.3-.1-.52-.16-.74.16-.22.32-.84 1.04-1.03 1.25-.19.21-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.58-.95-.84-1.59-1.88-1.78-2.2-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.73-1.75-1-2.4-.26-.63-.53-.54-.73-.55h-.63c-.22 0-.57.08-.87.4-.3.32-1.14 1.1-1.14 2.68s1.17 3.1 1.33 3.32c.16.21 2.3 3.5 5.58 4.9.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.1 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
-        </svg>
-      </a>
-
-      <a href="https://github.com/26bscs143-alt" target="_blank" rel="noopener">GITHUB ↗</a>
-      <a href="#home">BACK TO TOP ↑</a>
-    </div>
-  </div>
+ </div>
 </section>
 </main>
 
-<footer class="container">
-  <span>© 2026 HUZAIFA RIZWAN</span>
-  <span>BUILT WITH CURIOSITY.</span>
-  <span>PAKISTAN</span>
+<footer>
+ <div class="container footer-inner">
+  <a href="#home" class="logo">HR<span>.</span></a>
+  <p>© <span id="year"></span> HUZAIFA RIZWAN · BUILT WITH CURIOSITY.</p>
+  <div class="footer-links"><a href="#about">About</a><a href="#projects">Work</a><a href="#contact">Contact</a></div>
+ </div>
 </footer>
 
 <script>
-/* PAGE INTRO */
-const loader = document.getElementById('loader');
+document.getElementById("year").textContent = new Date().getFullYear();
 
-window.addEventListener('load', () => {
-  if (window.gsap) {
-    gsap.to(loader, {
-      yPercent:-100,
-      duration:1,
-      ease:'power4.inOut',
-      delay:.25,
-      onComplete:()=>{
-        loader.style.display='none';
-        document.body.classList.remove('loading');
-        gsap.from('.hero-heading', {
-          y:80,opacity:0,duration:1.2,ease:'power4.out'
-        });
-        gsap.from('.hero-description', {
-          y:25,opacity:0,duration:1,delay:.3
-        });
-        gsap.from('.hero-art', {
-          scale:.88,opacity:0,duration:1.3,delay:.2,ease:'power3.out'
-        });
-      }
-    });
-  } else {
-    loader.style.display='none';
-    document.body.classList.remove('loading');
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+ navLinks.classList.toggle("open");
+ menuBtn.textContent = navLinks.classList.contains("open") ? "×" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+ link.addEventListener("click", () => {
+  navLinks.classList.remove("open");
+  menuBtn.textContent = "☰";
+ });
+});
+
+const observer = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+  if(entry.isIntersecting){
+   entry.target.classList.add("visible");
+   observer.unobserve(entry.target);
   }
-});
+ });
+}, {threshold:0.12});
 
-/* NAVIGATION */
-const navbar=document.getElementById('navbar');
-window.addEventListener('scroll',()=>{
-  navbar.classList.toggle('scrolled',window.scrollY>40);
-},{passive:true});
-
-const menu=document.getElementById('menu');
-const navLinks=document.getElementById('navLinks');
-
-menu.addEventListener('click',()=>{
-  navLinks.classList.toggle('open');
-  menu.textContent=navLinks.classList.contains('open')?'×':'☰';
-});
-
-document.querySelectorAll('.nav-links a').forEach(link=>{
-  link.addEventListener('click',()=>{
-    navLinks.classList.remove('open');
-    menu.textContent='☰';
-  });
-});
-
-/* SCROLL REVEAL FALLBACK */
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:.12});
-
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-/* SMOOTH SECTION MOTION */
-if(window.gsap && window.ScrollTrigger){
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.utils.toArray('.act').forEach((item,index)=>{
-    gsap.from(item,{
-      y:45,
-      opacity:0,
-      duration:.85,
-      delay:index*.08,
-      ease:'power3.out',
-      scrollTrigger:{
-        trigger:item,
-        start:'top 88%',
-        once:true
-      }
-    });
-  });
-
-  gsap.utils.toArray('.skill-card').forEach((item,index)=>{
-    gsap.from(item,{
-      y:35,
-      opacity:0,
-      duration:.75,
-      delay:(index%3)*.1,
-      ease:'power3.out',
-      scrollTrigger:{
-        trigger:item,
-        start:'top 90%',
-        once:true
-      }
-    });
-  });
-
-  gsap.utils.toArray('.project-feature,.small-project,.education-item').forEach(item=>{
-    gsap.from(item,{
-      y:40,
-      opacity:0,
-      duration:.9,
-      ease:'power3.out',
-      scrollTrigger:{
-        trigger:item,
-        start:'top 88%',
-        once:true
-      }
-    });
-  });
-}
-
-/* SMALL INTERACTIVE TILT */
-document.querySelectorAll('.skill-card,.small-project').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const rect=card.getBoundingClientRect();
-    const x=(e.clientX-rect.left)/rect.width-.5;
-    const y=(e.clientY-rect.top)/rect.height-.5;
-
-    card.style.transform=
-      `perspective(700px) rotateY(${x*4}deg) rotateX(${-y*4}deg) translateY(-4px)`;
-  });
-
-  card.addEventListener('mouseleave',()=>{
-    card.style.transform='';
-  });
-});
+document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
 </script>
-
 </body>
 </html>
